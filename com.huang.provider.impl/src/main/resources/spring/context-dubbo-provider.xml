@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<dubbo:application name="order_provider" owner="order_provider"/> 
+	<!-- 使用zookeeper注册中心暴露服务地址 -->  
+    <dubbo:registry address="zookeeper://127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183" />  
+  
+    <!-- 用dubbo协议在20880端口暴露服务 -->  
+    <dubbo:protocol name="dubbo" port="20880" />  
+  
+    <!-- 声明需要暴露的服务接口 -->  
+    <dubbo:service interface="com.huang.provider.OrderServiceProvider"
+        ref="orderServiceProviderImpl" />  
+	
+</beans>
