@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.huang.client.OrderServiceClient;
 /**
  * 调用示例：http://localhost:9000/order/get_order_count?type=1
- * @author Administrator
+ * @author JeffreyHy
  *
  */
 @Controller
