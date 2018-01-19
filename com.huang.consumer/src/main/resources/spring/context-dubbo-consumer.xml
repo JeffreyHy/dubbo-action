@@ -9,8 +9,7 @@
 
     <dubbo:registry id="registry" address="zookeeper://127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183"/>
 
-    <dubbo:consumer registry="registry" filter="hystrixFilter"/>
-
-    <dubbo:reference id="orderServiceProvider" interface="com.huang.provider.OrderServiceProvider"/>
+    <dubbo:reference id="orderServiceProvider" interface="com.huang.provider.OrderServiceProvider"
+                     filter="hystrixFilter" timeout="500" retries="1" group=""/>
 
 </beans>
