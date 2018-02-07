@@ -36,9 +36,9 @@ public class OrderServiceProviderImpl implements OrderServiceProvider {
 
     @Override
     public Integer queryByOrderId() {
-        int c=OrderIdCounter.getAndIncrement();
-        if (logger.isDebugEnabled()){
-            logger.debug("OrderIdCounter:{}",c);
+        int c = OrderIdCounter.getAndIncrement();
+        if (logger.isDebugEnabled()) {
+            logger.debug("OrderIdCounter:{}", c);
         }
         if (c < 10) {
             try {
